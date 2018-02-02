@@ -10,7 +10,7 @@ public class NameViewHolder extends RecyclerView.ViewHolder {
 
     public NameViewHolder(View itemView) {
         super(itemView);
-        textView = (TextView) itemView.findViewById(R.id.name);
+        textView = itemView.findViewById(R.id.name);
     }
 
     public void bind(String name) {
