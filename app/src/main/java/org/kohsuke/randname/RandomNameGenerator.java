@@ -14,7 +14,7 @@ import android.content.Context;
  */
 public class RandomNameGenerator {
 
-    private Dictionary dictionary;
+    private final Dictionary dictionary;
 
     private int pos;
 

@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements NameTouchListener.OnNameCl
 
         randomNameGenerator = new RandomNameGenerator(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(new NameAdapter(this));

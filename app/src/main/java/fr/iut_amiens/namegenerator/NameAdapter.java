@@ -13,9 +13,9 @@ public class NameAdapter extends RecyclerView.Adapter<NameViewHolder> {
 
     private static final String TAG = NameAdapter.class.getSimpleName();
 
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
 
-    private List<String> names = new ArrayList<>();
+    private final List<String> names = new ArrayList<>();
 
     public NameAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);

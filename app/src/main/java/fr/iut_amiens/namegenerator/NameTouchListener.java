@@ -31,8 +31,13 @@ public class NameTouchListener extends RecyclerView.SimpleOnItemTouchListener im
              */
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                listener.onSingleTap(findNameUnder(e.getX(), e.getY()));
-                return true;
+                String name = findNameUnder(e.getX(), e.getY());
+                if (name != null) {
+                    listener.onSingleTap(name);
+                    return true;
+                } else {
+                    return false;
+                }
             }
 
             /**
@@ -43,19 +48,27 @@ public class NameTouchListener extends RecyclerView.SimpleOnItemTouchListener im
              */
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                listener.onDoubleTap(findNameUnder(e.getX(), e.getY()));
-                return true;
+                String name = findNameUnder(e.getX(), e.getY());
+                if (name != null) {
+                    listener.onDoubleTap(name);
+                    return true;
+                } else {
+                    return false;
+                }
             }
 
             /**
              * Notified when a long press occurs with the initial on down {@link MotionEvent}
-             * that trigged it.
+             * that triggered it.
              *
              * @param e The initial on down motion event that started the longpress.
              */
             @Override
             public void onLongPress(MotionEvent e) {
-                listener.onLongPress(findNameUnder(e.getX(), e.getY()));
+                String name = findNameUnder(e.getX(), e.getY());
+                if (name != null) {
+                    listener.onLongPress(name);
+                }
             }
         });
     }
@@ -85,6 +98,9 @@ public class NameTouchListener extends RecyclerView.SimpleOnItemTouchListener im
 
     private String findNameUnder(float x, float y) {
         final View view = recyclerView.findChildViewUnder(x, y);
+        if (view == null) {
+            return null;
+        }
         final int position = recyclerView.getChildAdapterPosition(view);
         return ((NameAdapter) recyclerView.getAdapter()).getItem(position);
     }
